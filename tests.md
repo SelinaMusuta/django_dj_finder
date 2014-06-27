@@ -1,4 +1,4 @@
-Browser displays 'hello world'. FAIL
+Browser displays 'hello world'. PASS
 
 Browser displays template. FAIL
 

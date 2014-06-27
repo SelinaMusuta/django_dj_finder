@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'dj_finder.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql.psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dj_finder',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
