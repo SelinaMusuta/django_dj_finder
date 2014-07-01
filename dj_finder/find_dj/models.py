@@ -18,15 +18,23 @@ class DJ(models.Model):
 	username = models.CharField(max_length=75)
 	password = models.CharField(max_length=10)
 
+	def __unicode__(self):
+		return self.username
+
 class City(models.Model):
 	city_name = models.CharField(max_length=75)
 	state = models.CharField(max_length=75)
-	dj_id = models.ManyToManyField(DJ)
+	dj_id = models.ManyToManyField(DJ) 
+
+	def __unicode__(self):
+		return self.city_name
 
 class Event(models.Model):
 	event_date = models.DateTimeField('date of event')
 	event_time = models.DateTimeField('time of event')
 	dj_id = models.ManyToManyField(DJ)
+
+
 
 class Venue(models.Model): 
 	address = models.CharField(max_length=250)

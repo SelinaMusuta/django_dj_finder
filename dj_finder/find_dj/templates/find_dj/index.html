@@ -1,0 +1,21 @@
+
+<p><h1>Here is a list of DJs in your area:</h1></p>
+
+	<ol>
+{% if latest_dj_list %}
+
+	
+
+	{% for dj in latest_dj_list %}
+
+	
+	<br>
+		<li><a href="/find_dj/{{ dj.id }}/">{{dj.dj_name}}</a></li>
+
+	
+	{% endfor %}
+	</ol>
+{% else %}
+	<p>No DJs available.</p>
+
+{% endif %}

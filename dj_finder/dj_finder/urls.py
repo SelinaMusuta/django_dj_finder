@@ -11,3 +11,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 )
+
+url(r'^find_dj/', include('find_dj.urls')),
