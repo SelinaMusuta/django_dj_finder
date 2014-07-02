@@ -1,17 +1,13 @@
-from django.http import HttpResponse
-from django.template import RequestContext, loader
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 
 from find_dj.models import DJ
 
 # Create your views here.
 def index(request):
 	latest_dj_list = DJ.objects.all()
-	template = loader.get_template('find_dj/index.html')
-	context = RequestContext(request, { 'latest_dj_list': latest_dj_list,})
-	return HttpResponse(template.render(context))
+	return render(request, 'find_dj/index.html', { 'latest_dj_list': latest_dj_list})
 
-def index(request):
-	dj_view = DJ.objects.get(dj_name='indanile')
-	template = loader.get_template('find_dj/dj_view.html')
-	context = RequestContext(request, { 'dj_view': dj_view,})
-	return HttpResponse(template.render(context))
+def dj_view(request, dj_id):
+	dj = get_object_or_404(DJ, pk= dj_id)
+	return render(request, 'find_dj/dj_view.html', { 'dj': dj})
